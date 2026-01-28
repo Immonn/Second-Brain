@@ -13,7 +13,7 @@ const ContentSchema=new Schema({
     link:String,
     tags:[{type:Types.ObjectId,ref:"tag"}],
     type:String,
-    userId:[{type:Types.ObjectId,ref:'user',required:true}]
+    userId:{type:Types.ObjectId,ref:'user',required:true}
 })
 
 export const contentModel=model("content",ContentSchema)
@@ -21,7 +21,7 @@ export const contentModel=model("content",ContentSchema)
 
 const linkSchema=new Schema({
     hash:String,
-    userId:[{type:Types.ObjectId,ref:"user",required:true,unique:true}]
+    userId:{type:Types.ObjectId,ref:"user",required:true,unique:true}
 })
 
 export const linkModel=model('links',linkSchema)
