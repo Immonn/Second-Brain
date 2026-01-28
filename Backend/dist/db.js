@@ -12,12 +12,12 @@ const ContentSchema = new mongoose_1.Schema({
     link: String,
     tags: [{ type: mongoose_1.Types.ObjectId, ref: "tag" }],
     type: String,
-    userId: [{ type: mongoose_1.Types.ObjectId, ref: 'user', required: true }]
+    userId: { type: mongoose_1.Types.ObjectId, ref: 'user', required: true }
 });
 exports.contentModel = (0, mongoose_1.model)("content", ContentSchema);
 const linkSchema = new mongoose_1.Schema({
     hash: String,
-    userId: [{ type: mongoose_1.Types.ObjectId, ref: "user", required: true, unique: true }]
+    userId: { type: mongoose_1.Types.ObjectId, ref: "user", required: true, unique: true }
 });
 exports.linkModel = (0, mongoose_1.model)('links', linkSchema);
 //# sourceMappingURL=db.js.map
