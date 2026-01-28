@@ -9,10 +9,12 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const auth_1 = require("./routes/auth");
 const content_1 = require("./routes/content");
+const links_1 = require("./routes/links");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use("/auth", auth_1.authRoute);
 app.use(content_1.contentRouter);
+app.use("/link", links_1.linkRouter);
 async function main() {
     if (!process.env.MONGO_URL) {
         throw new Error("MONGO_URL is not defined in environment variables");

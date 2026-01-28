@@ -9,7 +9,7 @@ import { random } from "../utils";
 
 linkRouter.post("/share", middleware, async (req, res) => {
     const required=z.object({
-        link:z.string()
+        share:z.string()
     })   
     const parseData=required.safeParse(req.body)
     if(!parseData.success){
