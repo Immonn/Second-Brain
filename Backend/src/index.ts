@@ -4,12 +4,14 @@ import express from "express";
 import mongoose from "mongoose";
 import { authRoute } from "./routes/auth";
 import { contentRouter } from "./routes/content";
+import { linkRouter } from "./routes/links";
 
 const app=express()
 
 app.use(express.json());
 app.use("/auth",authRoute)
 app.use(contentRouter)
+app.use("/link",linkRouter)
 
 async function main(){
     if (!process.env.MONGO_URL){
