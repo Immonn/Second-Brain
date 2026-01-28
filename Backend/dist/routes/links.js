@@ -10,7 +10,7 @@ const mongoose_1 = require("mongoose");
 const utils_1 = require("../utils");
 exports.linkRouter.post("/share", middleware_1.middleware, async (req, res) => {
     const required = zod_1.z.object({
-        link: zod_1.z.string()
+        share: zod_1.z.string()
     });
     const parseData = required.safeParse(req.body);
     if (!parseData.success) {
