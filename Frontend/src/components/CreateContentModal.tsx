@@ -2,10 +2,8 @@ import { CrossIcon } from "../icons/Close";
 import { Button } from "./Button";
 import { Input } from "./Input";
 
-
 //@ts-ignore
-export function CreateContentModal({open,close}){
-
+export function CreateContentModal({open,close}:{open:boolean,close:boolean}){
     return <div>
         {open && <div className="h-screen w-screen bg-slate-500 fixed top-0 left-0 opacity-60 flex justify-center">
             <div className="flex flex-col  justify-center">
@@ -14,8 +12,8 @@ export function CreateContentModal({open,close}){
                         <CrossIcon></CrossIcon>
                     </span>
                     <div>
-                        <Input placeholder={"Title"} onChange={() => {}}></Input>
-                        <Input placeholder={"Link"} onChange={() => {}}></Input>
+                        <Input onChange={() => {} } placeholder={"Title"} ></Input>
+                        <Input onChange={() => {} } placeholder={"Link"} ></Input>
                     </div>
                     <div className="flex justify-center">
                         <Button variant="Primary" text="submit" size="sm" />
@@ -25,4 +23,3 @@ export function CreateContentModal({open,close}){
         </div>}
     </div>
 }
-
