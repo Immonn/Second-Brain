@@ -14,8 +14,8 @@ export function CreateContentModal({open,close}){
                         <CrossIcon></CrossIcon>
                     </span>
                     <div>
-                        <Input placeholder={"Title"}></Input>
-                        <Input placeholder={"Link"}></Input>
+                        <Input placeholder={"Title"} onChange={() => {}}></Input>
+                        <Input placeholder={"Link"} onChange={() => {}}></Input>
                     </div>
                     <div className="flex justify-center">
                         <Button variant="Primary" text="submit" size="sm" />
@@ -25,3 +25,4 @@ export function CreateContentModal({open,close}){
         </div>}
     </div>
 }
+
