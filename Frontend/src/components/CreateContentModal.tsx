@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { Input } from "./Input";
 
 //@ts-ignore
-export function CreateContentModal({open,close}:{open:boolean,close:boolean}){
+export function CreateContentModal({open,close}:{open?:boolean,close?:boolean}){
     return <div>
         {open && <div className="h-screen w-screen bg-slate-500 fixed top-0 left-0 opacity-60 flex justify-center">
             <div className="flex flex-col  justify-center">
