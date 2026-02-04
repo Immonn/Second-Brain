@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+
+@theme {
+  --color-purple-1: #5046e4;
+  --color-purple-2: #e0e7fe;
+  --color-main:#f9fbfc ;
+  --color-card-text:#696c6f;
+  --color-text:#8f9396;
+  --color-sidebar:#ffffff;
+  --color-50:rgba(255,255,255,0.5)
+}
