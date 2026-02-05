@@ -1,5 +1,5 @@
 import { ShareIcon } from "../icons/Share";
-import { youtubeWatchToEmbed } from "../utils";
+
 
 
 interface Cardprops {
@@ -33,7 +33,7 @@ export function Card(props: Cardprops) {
                     {props.type === "youtube" && (
                         <iframe
                             className="w-full"
-                            src={youtubeWatchToEmbed(props.link)}
+                            src={props.link.replace("watch?v=", "embed/")}
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
