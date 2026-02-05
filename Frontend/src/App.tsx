@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "./components/Button";
 import { Card } from "./components/Card";
 import { CreateContentModal } from "./components/CreateContentModal";
@@ -7,10 +8,11 @@ import { ShareIcon } from "./icons/Share";
 
 
 function App() {
+  const [modalOpen,SetModalOpen]=useState(true)
   return <div className="p-4">
-    <CreateContentModal open={true}/>
+    <CreateContentModal open={modalOpen} onclose={() => { SetModalOpen(false)}}/>
     <div className="flex justify-end gap-4">
-        <Button variant="Primary" text="Add Content" startIcon={<PlusIcon />} size="md"></Button>
+        <Button variant="Primary" onClick={()=>SetModalOpen(true)} text="Add Content" startIcon={<PlusIcon />} size="md"></Button>
         <Button variant="Secondary" text="Share Brain" startIcon={<ShareIcon />} size="md"></Button>
     </div>
     <div className="flex item gap-4 mt-10">
@@ -21,3 +23,6 @@ function App() {
 }
 
 export default App;
+
+
+
