@@ -5,10 +5,13 @@ import mongoose from "mongoose";
 import { authRoute } from "./routes/auth";
 import { contentRouter } from "./routes/content";
 import { linkRouter } from "./routes/links";
+import cors from "cors";
 
 const app=express()
 
+
 app.use(express.json());
+app.use(cors())
 app.use("/auth",authRoute)
 app.use(contentRouter)
 app.use("/link",linkRouter)

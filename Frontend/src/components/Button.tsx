@@ -2,11 +2,13 @@ import type { ReactElement } from "react";
 
 
 interface ButtonProps {
-    variant: "Primary" | "Secondary";
+    variant: "Primary" | "Secondary" ;
     text: string;
     size:"md" | "sm" | "lg"
     startIcon?: ReactElement;
     onClick?:()=> void;
+    fullWidth?:Boolean;
+    loading?:Boolean;
 }
 
 const sizeStyles={
@@ -23,7 +25,8 @@ const variantClasses = {
 const defaultStyles="rounded-md px-4 py-2 flex font-light items-center cursor-pointer"
 
 export function Button(props: ButtonProps) {
-    return <button onClick={props.onClick} className={`${variantClasses[props.variant]} ${defaultStyles} ${sizeStyles[props.size]}`}>
+    return <button onClick={props.onClick} className={`${variantClasses[props.variant]} ${defaultStyles} ${props.fullWidth ? "w-100 flex mt-5 justify-center":""} ${sizeStyles[props.size]}
+    ${props.loading ? "opacity-45" : ""}`}>
         <div className="pr-2">{props.startIcon}</div>
         {props.text}</button >
 }
