@@ -17,7 +17,7 @@ export function CreateContentModal({ open, onclose }) {
                         onClick={e => e.stopPropagation()}
                     >
                         <span className="flex justify-end cursor-pointer" onClick={onclose}>
-                            <CrossIcon />
+                            <div className="hover:bg-red-600"><CrossIcon /></div>
                         </span>
                         <div>
                             <Input onChange={() => { }} placeholder={"Title"}></Input>

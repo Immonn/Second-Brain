@@ -16,7 +16,7 @@ const sizeStyles={
 }
 
 const variantClasses = {
-    "Primary": "bg-purple-1 text-white",
+    "Primary": "bg-purple-1 text-white hover:bg-red-600",
     "Secondary": "bg-purple-2 text-purple-1",
 }
 
