@@ -8,12 +8,15 @@ import { PlusIcon } from "../icons/plus"
 import { useContent } from "../hooks/useContent"
 import axios from "axios"
 import { BACKEND_URL } from "../config"
+import { Magnify } from "../icons/Magnify"
+import { Find } from "../components/Find"
 
 
 
 
 export function Dashboard() {
   const [modalOpen, SetModalOpen] = useState(false)
+  const [findOpen,setFindOpen]=useState(false)
   const contents = useContent()
   return (
     <>
@@ -22,8 +25,10 @@ export function Dashboard() {
       </div>
       <div className="p-4 ml-72 bg-main min-h-screen border-2 border-gray-200 ">
         <CreateContentModal open={modalOpen} onclose={() => { SetModalOpen(false) }} />
+        <Find open={findOpen} onclose={() => { setFindOpen(false) }}/>
         <div className="flex justify-end gap-4 pt-5">
           <Button variant="Primary" onClick={() => SetModalOpen(true)} text="Add Content" startIcon={<PlusIcon />} size="md"></Button>
+          <Button variant="Primary" onClick={() => setFindOpen(true)} text="Find Brain" startIcon={<Magnify/>} size="md"></Button>
           <Button onClick={async ()=>{
             const response=await axios.post(`${BACKEND_URL}/link/share`,{
               share:"yes"
@@ -32,7 +37,7 @@ export function Dashboard() {
                 token:localStorage.getItem("token")
               }
             })
-            const url=`http://localhost:5173/share/${response.data.hash}`
+            const url=`${response.data.hash}`
             alert(url)
           }} variant="Secondary" text="Share Brain" startIcon={<ShareIcon />} size="md"></Button>
         </div>
