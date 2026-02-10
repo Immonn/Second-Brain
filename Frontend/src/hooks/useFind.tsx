@@ -28,7 +28,7 @@ export function useFind(){
         refresh()
         let interval=setInterval(()=>{
             refresh()
-        },10*1000)
+        },5*1000)
 
         return ()=>{
             clearInterval(interval)
