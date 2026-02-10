@@ -10,6 +10,7 @@ import axios from "axios"
 import { BACKEND_URL } from "../config"
 import { Magnify } from "../icons/Magnify"
 import { Find } from "../components/Find"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -18,6 +19,7 @@ export function Dashboard() {
   const [modalOpen, SetModalOpen] = useState(false)
   const [findOpen,setFindOpen]=useState(false)
   const contents = useContent()
+  const navigate=useNavigate()
   return (
     <>
       <div>
@@ -40,6 +42,7 @@ export function Dashboard() {
             const url=`${response.data.hash}`
             alert(url)
           }} variant="Secondary" text="Share Brain" startIcon={<ShareIcon />} size="md"></Button>
+          <Button variant="logout" size="sm" text="Log Out" onClick={()=>navigate("/")}></Button>
         </div>
         <div className="flex item gap-4 mt-10 flex-wrap">
           {contents.map(({ type, link, title }) => (
