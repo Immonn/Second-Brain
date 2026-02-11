@@ -2,7 +2,8 @@
 import { ShareSidebar } from "../components/ShareSidebar";
 import { Card } from "../components/Card"
 
-import { useFind } from "../hooks/useFind";
+
+import { Xfind } from "../hooks/Xfind";
 
 type ContentItem = {
   type: any;
@@ -10,8 +11,8 @@ type ContentItem = {
   title: string;
 };
 
-export function ShareDashboard() {
-  const [username, contents] = useFind()
+export function XShareDashboard() {
+  const [username, contents] = Xfind()
   return (
     <>
       <div>

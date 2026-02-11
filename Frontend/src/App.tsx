@@ -7,6 +7,8 @@ import { ShareDashboard } from "./pages/Share_dashboard";
 import { Landing } from "./pages/Landing";
 import { Xdashboard } from "./pages/Xdashboard";
 import { Ydashboard } from "./pages/Ydashboard";
+import { XShareDashboard } from "./pages/XShare_dashboard";
+import { YShareDashboard } from "./pages/YShare_dashboard";
 
 function App() {
   return <BrowserRouter>
@@ -15,6 +17,8 @@ function App() {
     <Route path="/signin" element={<Signin/>}></Route>
     <Route path="/dashboard" element={<Dashboard/>}></Route>
     <Route path="/share" element={<ShareDashboard/>}></Route>
+    <Route path="/xshare" element={<XShareDashboard/>}></Route>
+    <Route path="/yshare" element={<YShareDashboard/>}></Route>
     <Route path="/x" element={<Xdashboard/>}></Route>
     <Route path="/youtube" element={<Ydashboard/>}></Route>
     <Route path="/" element={<Landing/>}></Route>
