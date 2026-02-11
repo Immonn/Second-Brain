@@ -2,16 +2,21 @@ import { Logo } from "../icons/Logo";
 import { TwitterIcon } from "../icons/Twitter";
 import { Yotube } from "../icons/Youtube";
 import { SidebarItem } from "./SideBarItems";
+import { All } from "../icons/All";
+import { useNavigate } from "react-router-dom";
+
 
 export function Sidebar(){
+    const navigate=useNavigate()
     return <div className="h-screen bg-white  w-72 fixed left-0 right-0">
         <div className="flex items-center gap-2 p-4 mt-5">
             <div className="text-blue-700"><Logo/></div>
             <div className="text-blue-900 text-4xl font-bold">Brainly</div>
         </div>
         <div className="pl-5 mt-10 ">
-            <SidebarItem text="X" icon={<TwitterIcon />}/>
-            <SidebarItem text="YouTube" icon={<Yotube />}/>
+            <SidebarItem onClick={()=>navigate("/dashboard")} text="All" icon={<All></All>}/>
+            <SidebarItem onClick={()=>navigate("/x")} text="X" icon={<TwitterIcon />}/>
+            <SidebarItem onClick={()=>navigate("/youtube")} text="YouTube" icon={<Yotube />}/>
         </div>
     </div>
 }
