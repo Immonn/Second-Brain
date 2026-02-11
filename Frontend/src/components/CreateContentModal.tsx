@@ -12,6 +12,7 @@ enum ContentType {
     X="x"
 }
 
+
 //@ts-ignore
 export function CreateContentModal({ open, onclose }) {
 
@@ -21,8 +22,9 @@ export function CreateContentModal({ open, onclose }) {
     const [type,setType]=useState(ContentType.YouTube)
 
     async function addContent(){
-        const title=titleref.current?.value;
-        const link=linkref.current?.value;
+        const title=titleref.current?.value.trim();
+        const link=linkref.current?.value.trim();
+        
 
         await axios.post(`${BACKEND_URL}/content`,{
             title,

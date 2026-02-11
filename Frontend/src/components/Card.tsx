@@ -1,5 +1,5 @@
 import { ShareIcon } from "../icons/Share";
-
+import { Goto } from "../icons/Goto";
 
 
 interface Cardprops {
@@ -12,20 +12,17 @@ export function Card(props: Cardprops) {
     return <div>
         <div className="border-gray-200 border max-w-76 p-4 bg-white rounded-md  outline-slate-200">
             <div className="flex justify-between ">
-                <div className="flex items-center">
-                    <div className="text-gray-500 pr-2 text-sm"><ShareIcon /></div>
+                <div className="flex items-center font-semibold">
                     {props.title}
                 </div>
                 <div className="flex text-gray-500">
-                    <div className="pr-2">
+                    <div className="pr-2 hover:text-gray-800">
                         <a href={props.link} target="_blank">
-                            <ShareIcon />
+                            <Goto/>
                         </a>
                     </div>
-                    <div>
-                        <a href={props.link} target="_blank">
-                            <ShareIcon />
-                        </a>
+                    <div className="cursor-pointer hover:text-gray-800" onClick={()=> alert(props.link)}>
+                        <ShareIcon />
                     </div>
                 </div>
             </div>
