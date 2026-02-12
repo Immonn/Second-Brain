@@ -17,7 +17,7 @@ app.use(cors({
   credentials: true,
 }));
 app.use("/auth", authRoute);
-app.use("/content", contentRouter);
+app.use(contentRouter);
 app.use("/link", linkRouter);
 
 
