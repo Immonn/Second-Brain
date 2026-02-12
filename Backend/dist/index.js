@@ -13,7 +13,10 @@ const links_1 = require("./routes/links");
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: "https://second-brain-alpha-ashen.vercel.app",
+    credentials: true,
+}));
 app.use("/auth", auth_1.authRoute);
 app.use(content_1.contentRouter);
 app.use("/link", links_1.linkRouter);
