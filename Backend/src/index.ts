@@ -11,7 +11,10 @@ const app=express()
 
 
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: "https://second-brain-alpha-ashen.vercel.app", // ya ["..."] for multiple
+  credentials: true,
+}));
 app.use("/auth",authRoute)
 app.use(contentRouter)
 app.use("/link",linkRouter)
