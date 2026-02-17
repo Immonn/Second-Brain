@@ -25,7 +25,7 @@ export function Dashboard() {
       <div>
         <Sidebar></Sidebar>
       </div>
-      <div className="p-4 ml-72 bg-main min-h-screen border-2 border-gray-200 ">
+      <div className="p-4 lg:ml-72 ml-0 bg-main min-h-screen border-2 border-gray-200 ">
         <CreateContentModal open={modalOpen} onclose={() => { SetModalOpen(false) }} />
         <Find open={findOpen} onclose={() => { setFindOpen(false) }}/>
         <div className="flex justify-end gap-4 pt-5">
@@ -44,7 +44,7 @@ export function Dashboard() {
           }} variant="Secondary" text="Share Brain" startIcon={<ShareIcon />} size="md"></Button>
           <Button variant="logout" size="sm" text="Log Out" onClick={()=>navigate("/")}></Button>
         </div>
-        <div className="flex item gap-4 mt-10 flex-wrap">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mt-10">
           {contents.map(({ type, link, title }) => (
             <Card key={link + title} type={type} link={link} title={title} />
           ))}

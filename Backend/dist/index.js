@@ -19,7 +19,7 @@ app.use((0, cors_1.default)({
     credentials: true,
 }));
 app.use("/auth", auth_1.authRoute);
-app.use("/content", content_1.contentRouter);
+app.use(content_1.contentRouter);
 app.use("/link", links_1.linkRouter);
 const frontendBuildPath = path_1.default.join(__dirname, "../../Frontend/dist");
 app.use(express_1.default.static(frontendBuildPath));

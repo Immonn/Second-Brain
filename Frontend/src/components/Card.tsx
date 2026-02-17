@@ -33,7 +33,7 @@ export function Card(props: Cardprops) {
     }, [props.type, props.link]);
 
     return <div>
-        <div ref={containerRef} className="border-gray-200 border max-w-76 p-4 bg-white rounded-md  outline-slate-200">
+        <div ref={containerRef} className="border border-gray-200 bg-white rounded-md outline-slate-200 p-4 w-full max-w-md">
             <div className="flex justify-between ">
                 <div className="flex items-center font-semibold">
                     {props.title}
@@ -52,7 +52,7 @@ export function Card(props: Cardprops) {
             <div className="pt-3">
                     {props.type === "youtube" && (
                         <iframe
-                            className="w-full"
+                            className="w-full aspect-video"
                             src={props.link.replace("watch?v=", "embed/")}
                             title="YouTube video player"
                             frameBorder="0"

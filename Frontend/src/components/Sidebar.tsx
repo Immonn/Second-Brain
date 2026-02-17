@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export function Sidebar(){
     const navigate=useNavigate()
-    return <div className="h-screen bg-white  w-72 fixed left-0 right-0">
+    return <div className="hidden lg:block h-screen bg-white w-72 fixed left-0 right-0">
         <div onClick={()=>navigate("/dashboard")} className="flex items-center gap-2 p-4 mt-5">
             <div className="text-blue-700 cursor-pointer"><Logo/></div>
             <div className="text-blue-900 cursor-pointer text-4xl font-bold">Brainly</div>

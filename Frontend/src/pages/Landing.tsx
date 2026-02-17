@@ -19,22 +19,22 @@ export function Landing() {
                 </div>
             </div>
         </div>  
-        <div className="bg-gray-100 border>">
-            <div className="  flex-col justify-center  w-350 h-screen mx-auto">
-                <div className=" flex justify-center ">
-                <div className="max-w-100 mt-30 font-bold  flex-col justify-center ">
-                    <p className="text-4xl">Brainly : Your hub for Links & Knowledge</p>
-                    <p className="text-xl font-light mt-2">Store. Share. Learn. Connect</p>
-                    <div className="mt-3">
-                        <Button size="lg" onClick={()=>navigate("/signup")} variant="Primary" text="Start Sharing Now" />
+        <div className="bg-gray-100">
+            <div className="max-w-7xl mx-auto px-4 py-10">
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
+                    <div className="max-w-xl mt-8 font-bold text-center lg:text-left">
+                        <p className="text-4xl">Brainly : Your hub for Links & Knowledge</p>
+                        <p className="text-xl font-light mt-2">Store. Share. Learn. Connect</p>
+                        <div className="mt-3">
+                            <Button size="lg" onClick={()=>navigate("/signup")} variant="Primary" text="Start Sharing Now" />
+                        </div>
+                    </div>
+                    <div className="w-full max-w-140">
+                        <img className="w-full h-auto" src={image} alt="Description" />
                     </div>
                 </div>
-                <div >
-                    <img className="size-120 w-140" src={image} alt="Description" />
-                </div>
-                </div>
-                <div className=" flex justify-center ">
-                    <img className="size-100 w-200" src={how} />
+                <div className="flex justify-center mt-10">
+                    <img className="w-full h-auto max-w-200" src={how} />
                 </div>
             </div>
         </div>
