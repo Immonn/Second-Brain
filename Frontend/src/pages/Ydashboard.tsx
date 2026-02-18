@@ -45,8 +45,8 @@ export function Ydashboard() {
           <Button variant="logout" size="sm" text="Log Out" onClick={()=>navigate("/")}></Button>
         </div>
         <div className="flex item gap-4 mt-10 flex-wrap">
-          {contents.map(({ type, link, title }) => (
-            <Card key={link + title} type={type} link={link} title={title} />
+          {contents.map(({ _id, type, link, title }) => (
+            <Card key={link + title} id={_id} type={type} link={link} title={title} />
           ))}
         </div>
       </div>
