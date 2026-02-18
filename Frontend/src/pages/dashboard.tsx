@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom"
 export function Dashboard() {
   const [modalOpen, SetModalOpen] = useState(false)
   const [findOpen,setFindOpen]=useState(false)
-  const { contents, refresh } = useContent()
+  const contents = useContent()
   const navigate=useNavigate()
   return (
     <>
@@ -45,8 +45,8 @@ export function Dashboard() {
           <Button variant="logout" size="sm" text="Log Out" onClick={()=>navigate("/")}></Button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mt-10">
-          {contents.map(({ _id, type, link, title }) => (
-            <Card key={link + title} id={_id} type={type} link={link} title={title} onDeleted={refresh} />
+          {contents.map(({ type, link, title }) => (
+            <Card key={link + title} type={type} link={link} title={title} />
           ))}
         </div>
       </div>
