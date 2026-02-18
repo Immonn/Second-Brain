@@ -11,6 +11,7 @@ interface Cardprops {
     title: string;
     type: "x" | "youtube";
     link: string;
+    showDelete?: boolean; // optional, default true
 }
 
 export function Card(props: Cardprops) {
@@ -57,21 +58,23 @@ export function Card(props: Cardprops) {
                         <div className="cursor-pointer hover:text-gray-800 pr-3" onClick={() => alert(props.link)}>
                             <ShareIcon />
                         </div>
-                        <div className="cursor-pointer hover:text-gray-800" onClick={async () => {
-                            try {
-                                await axios.delete(`${BACKEND_URL}/content`, {
-                                    data: { contentId: props.id },
-                                    headers: {
-                                        token: localStorage.getItem("token")
-                                    }
-                                })
-                                setDeleted(true);
-                            } catch (e) {
-                                alert("Failed to delete. Please try again.");
-                            }
-                        }}>
-                            <Trash />
-                        </div>
+                        {props.showDelete !== false && (
+                            <div className="cursor-pointer hover:text-gray-800" onClick={async () => {
+                                try {
+                                    await axios.delete(`${BACKEND_URL}/content`, {
+                                        data: { contentId: props.id },
+                                        headers: {
+                                            token: localStorage.getItem("token")
+                                        }
+                                    })
+                                    setDeleted(true);
+                                } catch (e) {
+                                    alert("Failed to delete. Please try again.");
+                                }
+                            }}>
+                                <Trash />
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="pt-3">
