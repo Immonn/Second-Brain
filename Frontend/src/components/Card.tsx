@@ -1,10 +1,13 @@
 import { ShareIcon } from "../icons/Share";
 import { Goto } from "../icons/Goto";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Trash } from "../icons/trash";
+import axios from "axios";
+import { BACKEND_URL } from "../config";
 
 
 interface Cardprops {
+    id: string;
     title: string;
     type: "x" | "youtube";
     link: string;
@@ -12,6 +15,7 @@ interface Cardprops {
 
 export function Card(props: Cardprops) {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [deleted, setDeleted] = useState(false);
 
     useEffect(() => {
         if (props.type !== "x") return;
@@ -33,27 +37,44 @@ export function Card(props: Cardprops) {
         loadWidgets();
     }, [props.type, props.link]);
 
-    return <div>
-        <div ref={containerRef} className="border border-gray-200 bg-white rounded-md outline-slate-200 p-4 w-full max-w-md">
-            <div className="flex justify-between ">
-                <div className="flex items-center font-semibold">
-                    {props.title}
+    if (deleted) {
+        return null;
+    }
+
+    return (
+        <div>
+            <div ref={containerRef} className="border border-gray-200 bg-white rounded-md outline-slate-200 p-4 w-full max-w-md">
+                <div className="flex justify-between ">
+                    <div className="flex items-center font-semibold">
+                        {props.title}
+                    </div>
+                    <div className="flex text-gray-500">
+                        <div className="pr-2 hover:text-gray-800">
+                            <a href={props.link} target="_blank">
+                                <Goto />
+                            </a>
+                        </div>
+                        <div className="cursor-pointer hover:text-gray-800 pr-3" onClick={() => alert(props.link)}>
+                            <ShareIcon />
+                        </div>
+                        <div className="cursor-pointer hover:text-gray-800" onClick={async () => {
+                            try {
+                                await axios.delete(`${BACKEND_URL}/content`, {
+                                    data: { contentId: props.id },
+                                    headers: {
+                                        token: localStorage.getItem("token")
+                                    }
+                                })
+                                setDeleted(true);
+                            } catch (e) {
+                                alert("Failed to delete. Please try again.");
+                            }
+                        }}>
+                            <Trash />
+                        </div>
+                    </div>
                 </div>
-                <div className="flex text-gray-500">
-                    <div className="pr-2 hover:text-gray-800">
-                        <a href={props.link} target="_blank">
-                            <Goto/>
-                        </a>
-                    </div>
-                    <div className="cursor-pointer hover:text-gray-800 pr-3" onClick={()=> alert(props.link)}>
-                        <ShareIcon />
-                    </div>
-                    <div className="cursor-pointer hover:text-gray-800" onClick={()=> alert(props.link)}>
-                        < Trash/>
-                    </div>
-                </div>
-            </div>
-            <div className="pt-3">
+                <div className="pt-3">
                     {props.type === "youtube" && (
                         <iframe
                             className="w-full aspect-video"
@@ -65,12 +86,13 @@ export function Card(props: Cardprops) {
                             allowFullScreen
                         />
                     )}
-                {props.type === "x" && (
-                    <blockquote className="twitter-tweet">
-                        <a href={props.link.replace("x.com", "twitter.com")}></a>
-                    </blockquote>
-                )}
+                    {props.type === "x" && (
+                        <blockquote className="twitter-tweet">
+                            <a href={props.link.replace("x.com", "twitter.com")}></a>
+                        </blockquote>
+                    )}
+                </div>
             </div>
         </div>
-    </div>
+    );
 }
