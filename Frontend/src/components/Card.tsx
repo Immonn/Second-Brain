@@ -45,7 +45,7 @@ export function Card(props: Cardprops) {
                             <Goto/>
                         </a>
                     </div>
-                    <div className="cursor-pointer hover:text-gray-800 pr-1" onClick={()=> alert(props.link)}>
+                    <div className="cursor-pointer hover:text-gray-800 pr-3" onClick={()=> alert(props.link)}>
                         <ShareIcon />
                     </div>
                     <div className="cursor-pointer hover:text-gray-800" onClick={()=> alert(props.link)}>
