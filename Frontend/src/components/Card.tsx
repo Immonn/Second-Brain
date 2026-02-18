@@ -46,10 +46,10 @@ export function Card(props: Cardprops) {
                         </a>
                     </div>
                     <div className="cursor-pointer hover:text-gray-800" onClick={()=> alert(props.link)}>
-                        < Trash/>
+                        <ShareIcon />
                     </div>
                     <div className="cursor-pointer hover:text-gray-800" onClick={()=> alert(props.link)}>
-                        <ShareIcon />
+                        < Trash/>
                     </div>
                 </div>
             </div>
