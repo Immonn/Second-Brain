@@ -32,7 +32,7 @@ export function Signup(){
             } finally {
                 setloading(false);
             }
-        }, 1000);
+        }, 100);
     }
     return <>
     <div className={dataloading ? "opacity-50 pointer-events-none" : ""}>

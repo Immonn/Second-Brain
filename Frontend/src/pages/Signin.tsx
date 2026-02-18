@@ -37,7 +37,7 @@ export function Signin(){
             } finally {
                 setloading(false);
             }
-        }, 3000);
+        }, 100);
     }
     return <>
     <div className={dataloading ? "opacity-50 pointer-events-none" : ""}>
