@@ -1,12 +1,17 @@
 import { ShareIcon } from "../icons/Share";
 import { Goto } from "../icons/Goto";
 import { useEffect, useRef } from "react";
+import { Trash } from "../icons/trash";
+import axios from "axios";
+import { BACKEND_URL } from "../config";
 
 
 interface Cardprops {
+    id: string;
     title: string;
     type: "x" | "youtube";
     link: string;
+    onDeleted?: () => void;
 }
 
 export function Card(props: Cardprops) {
@@ -43,6 +48,21 @@ export function Card(props: Cardprops) {
                         <a href={props.link} target="_blank">
                             <Goto/>
                         </a>
+                    </div>
+                    <div className="cursor-pointer hover:text-gray-800" onClick={async ()=>{
+                        try{
+                            await axios.delete(`${BACKEND_URL}/content`,{
+                                data:{ contentId: props.id },
+                                headers:{
+                                    token:localStorage.getItem("token")
+                                }
+                            })
+                            props.onDeleted?.();
+                        }catch(e){
+                            alert("Failed to delete. Please try again.");
+                        }
+                    }}>
+                        < Trash/>
                     </div>
                     <div className="cursor-pointer hover:text-gray-800" onClick={()=> alert(props.link)}>
                         <ShareIcon />
