@@ -100,8 +100,8 @@ export function Card(props: Cardprops) {
                             src={getYouTubeEmbedUrl(props.link)}
                             title="YouTube video player"
                             frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="no-referrer"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                            sandbox="allow-same-origin allow-scripts allow-presentation allow-popups"
                             allowFullScreen
                         />
                     )}
