@@ -5,6 +5,22 @@ import { Trash } from "../icons/trash";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 
+function getYouTubeEmbedUrl(url: string): string {
+    let videoId = "";
+    
+    // Handle youtu.be short URLs: https://youtu.be/wdQ7gJKmb9I?si=...
+    if (url.includes("youtu.be")) {
+        const match = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+        videoId = match?.[1] || "";
+    }
+    // Handle youtube.com watch URLs
+    else if (url.includes("youtube.com")) {
+        const match = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+        videoId = match?.[1] || "";
+    }
+    
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+}
 
 interface Cardprops {
     id: string;
@@ -81,11 +97,11 @@ export function Card(props: Cardprops) {
                     {props.type === "youtube" && (
                         <iframe
                             className="w-full aspect-video"
-                            src={props.link.replace("watch?v=", "embed/")}
+                            src={getYouTubeEmbedUrl(props.link)}
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
+                            referrerPolicy="no-referrer"
                             allowFullScreen
                         />
                     )}
