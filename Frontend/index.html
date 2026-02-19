@@ -2,13 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path d='M28.46 4H29a14 14 0 0 1 14 14v12a14 14 0 0 1-14 14h-.5a4.46 4.46 0 0 1-4.5-4.46V8.46A4.46 4.46 0 0 1 28.46 4z' fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brainly</title>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #loading-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+      #loading-logo svg {
+        width: 80px;
+        height: 80px;
+        color: white;
+        animation: spin 2s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="loading-logo">
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'>
+          <path d='M28.46 4H29a14 14 0 0 1 14 14v12a14 14 0 0 1-14 14h-.5a4.46 4.46 0 0 1-4.5-4.46V8.46A4.46 4.46 0 0 1 28.46 4z' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/>
+          <path d='M9.46 4H10a14 14 0 0 1 14 14v12a14 14 0 0 1-14 14h-.5A4.46 4.46 0 0 1 5 39.54V8.46A4.46 4.46 0 0 1 9.46 4z' transform='rotate(180 14.5 24)' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/>
+          <path d='m36.53 6.48-4.92 4.21 2.85 6.41M43 17.1s-6.4 7.83-9.25 6.4M35.88 27.9l6.89 4.98M38.02 30.04l-4.27 2.13M6.08 15s6.33 2.56 6.33 7.54M9.79 17.33l3.33-3.37M8.45 38.9l4.67-8.57M10.78 34.61s3-1.44 4.47 0M17.29 4.17l-.33 4.1M20 21.79l4 1.28' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/>
+        </svg>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
